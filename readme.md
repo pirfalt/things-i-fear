@@ -116,20 +116,6 @@ cd -
 
 No link, no explanation.
 
-## Mental overload?
-
-"Denial Of Service attack on your understandability."
-
-- npm
-  - `tree ../nodejs-typescript-openapi/node_modules/`
-  - `code ../nodejs-typescript-openapi/package.json`
-  - `code ../nodejs-typescript-openapi/package-lock.json`
-- Maven
-  - `tree ~/.m2/repository/`
-  - `code ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml`
-  - `mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml help:effective-pom`
-  - `mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml dependency:tree`
-
 ## Constant vigilance required
 
 - Manual resource management
@@ -151,5 +137,23 @@ No link, no explanation.
 ## Counter examples
 
 - SQL
-  - Horrible syntax, but mostly understandable
+  - Horrible syntax, but mostly understandable.
 - ORMs (Object Relational Mappers)
+
+## Mental overload?
+
+"Denial Of Service attack on your understandability."
+
+- npm
+  ```sh
+  tree ../nodejs-typescript-openapi/node_modules/
+  code ../nodejs-typescript-openapi/package.json
+  code ../nodejs-typescript-openapi/package-lock.json
+  ```
+- Maven
+  ```sh
+  tree ~/.m2/repository/
+  code ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml
+  mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml help:effective-pom
+  mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml dependency:tree
+  ```
