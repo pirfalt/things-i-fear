@@ -4,7 +4,7 @@ https://trello.com/c/zPIVzgUg/477-confession-time-there-are-things-im-worried-th
 
 > There are technologies which I'm worried that I will never understand. Let's admit that and then go through a few of them.
 
-## Description
+## Description / Introduction
 
 I would like to think that my technology preferences is based on objective reasons.
 
@@ -12,16 +12,34 @@ While trying to motivate some of my reasoning I noticed that my arguments were a
 
 ### Understandability matters
 
-Sometimes I type guesses and hope for the best when evaluating the guess.
-Without any _expected_ result.
+Guessing or Debugging.
 
-... I _hate_ when that happens.
+- Sometimes I just type guesses and hope for the best.
+- _Without any expected result._
+- ... I _hate_ when that happens.
 
-#### Previous experience also matters
+This is not what I call "debugging".
 
-But only because you may already understand it.
+Debugging is the process of coming up with a hypothesist and verifying it.
 
-### Where does this come from?
+Maybe debugging.
+
+- Have you ever added logging you don't intend to keep, just to check whats going on?
+- Have you ever set an ugly background color in a CSS selector, just to check which elements change?
+
+Probably guessing.
+
+- Have you ever commented out large blocks of code, just to check if a bug is there?
+- Do you have `@Annotations` you might not need?
+- Do you have CSS in your project which you are unsure if it's ever used?
+
+Some things _are_ very difficult. 17 years of research on [Distributed Consensus](https://www.youtube.com/watch?v=B5NULPSiOGw&t=649s). (Use something else if you can.)
+
+### Previous experience also matters
+
+Mainly because you may already understand it.
+
+## Where does this come from?
 
 "How did _this_ end up here?"
 
@@ -29,24 +47,93 @@ But only because you may already understand it.
   - HTML - selector matching
 - Spring
   - @Annotations
-  - "Externalized Configuration"
-    https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config
-  - "Profiles"
-    https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles
+  - ["Externalized Configuration"](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config)
+  - ["Profiles"](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles)
 - Spring + Maven
   - Not all dependencies are downloaded before startup
 - Class hierarchies
 
-### Mental overload?
+### Html + css example.
+
+![html tree](./html-tree.png)
+
+```css
+p {
+  background-color: pink;
+}
+main p {
+  background-color: black;
+}
+article p {
+  background-color: green;
+}
+article > p {
+  background-color: yellow;
+}
+```
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity
+
+### "Externalized configuration" example.
+
+```java
+@Component
+public class MyBean {
+
+    @Value("${name}")
+    private String name;
+
+    // ...
+
+}
+```
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config
+
+### "Profiles"
+
+```java
+@Configuration(proxyBeanMethods = false)
+@Profile("production")
+public class ProductionConfiguration {
+
+    // ...
+
+}
+
+// spring.profiles.active=dev,hsqldb
+```
+
+https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles
+
+### Unexpected dependency code.
+
+```sh
+cd ../docker-introduction/6_hello-world-http-java
+code Dockerfile readme.md
+cd -
+```
+
+No link, no explanation.
+
+## Mental overload?
 
 "Denial Of Service attack on your understandability."
 
 - npm
+  - `tree ../nodejs-typescript-openapi/node_modules/`
+  - `code ../nodejs-typescript-openapi/package.json`
+  - `code ../nodejs-typescript-openapi/package-lock.json`
 - Maven
+  - `tree ~/.m2/repository/`
+  - `code ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml`
+  - `mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml help:effective-pom`
+  - `mvn --file ../docker-introduction/6_hello-world-http-java/spring-petclinic/pom.xml dependency:tree`
 
-### Constant vigilance required
+## Constant vigilance required
 
-- Manual memory management
+- Manual resource management
+  - Memory
   - Sockets
   - Files
 - `null`
@@ -55,13 +142,13 @@ But only because you may already understand it.
   - html in js
   - go in python
 
-### "Helpful frameworks"
+## "Helpful frameworks"
 
 - Vue (proxies)
 - Svelt (compilers)
 - React ("re-render everything")
 
-### Counter examples
+## Counter examples
 
 - SQL
   - Horrible syntax, but mostly understandable
