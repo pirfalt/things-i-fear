@@ -132,6 +132,7 @@ No link, no explanation.
 
 - Vue (proxies)
 - Svelt (compilers)
+  ["Could we use the destiny operator in JS? Well no..."](https://www.youtube.com/watch?v=AdNJ3fydeao&t=863s)
 - React ("re-render everything")
 
 ## Counter examples
